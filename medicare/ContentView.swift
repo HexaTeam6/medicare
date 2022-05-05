@@ -115,11 +115,13 @@ struct StartScreening: View {
                 print("button pressed")
                 
             }) {
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.white)
-                    .font(.system(size: 30))
-                    .padding(.horizontal, 15)
-                    .padding(.vertical, 10)
+                NavigationLink(destination: ScreeningView(), label: {
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(.white)
+                        .font(.system(size: 30))
+                        .padding(.horizontal, 15)
+                        .padding(.vertical, 10)
+                })
             }
             .background(Color("Navy"))
             .cornerRadius(10)

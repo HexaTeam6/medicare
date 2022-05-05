@@ -14,6 +14,7 @@
 		38777BC628241CA4002D091F /* medicareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BC528241CA4002D091F /* medicareTests.swift */; };
 		38777BD028241CA4002D091F /* medicareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BCF28241CA4002D091F /* medicareUITests.swift */; };
 		38777BD228241CA4002D091F /* medicareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BD128241CA4002D091F /* medicareUITestsLaunchTests.swift */; };
+		38777BDF28245314002D091F /* ScreeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BDE28245314002D091F /* ScreeningView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		38777BCB28241CA4002D091F /* medicareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = medicareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		38777BCF28241CA4002D091F /* medicareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicareUITests.swift; sourceTree = "<group>"; };
 		38777BD128241CA4002D091F /* medicareUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicareUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		38777BDE28245314002D091F /* ScreeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreeningView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				38777BB428241CA3002D091F /* medicareApp.swift */,
 				38777BB628241CA3002D091F /* ContentView.swift */,
+				38777BDE28245314002D091F /* ScreeningView.swift */,
 				38777BB828241CA4002D091F /* Assets.xcassets */,
 				38777BBA28241CA4002D091F /* Preview Content */,
 			);
@@ -259,6 +262,7 @@
 			files = (
 				38777BB728241CA3002D091F /* ContentView.swift in Sources */,
 				38777BB528241CA3002D091F /* medicareApp.swift in Sources */,
+				38777BDF28245314002D091F /* ScreeningView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
