@@ -15,6 +15,7 @@
 		38777BD028241CA4002D091F /* medicareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BCF28241CA4002D091F /* medicareUITests.swift */; };
 		38777BD228241CA4002D091F /* medicareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BD128241CA4002D091F /* medicareUITestsLaunchTests.swift */; };
 		38777BDF28245314002D091F /* ScreeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BDE28245314002D091F /* ScreeningView.swift */; };
+		38777BE12824B3B6002D091F /* Screening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BE02824B3B6002D091F /* Screening.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		38777BCF28241CA4002D091F /* medicareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicareUITests.swift; sourceTree = "<group>"; };
 		38777BD128241CA4002D091F /* medicareUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicareUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		38777BDE28245314002D091F /* ScreeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreeningView.swift; sourceTree = "<group>"; };
+		38777BE02824B3B6002D091F /* Screening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screening.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				38777BB628241CA3002D091F /* ContentView.swift */,
 				38777BDE28245314002D091F /* ScreeningView.swift */,
 				38777BB828241CA4002D091F /* Assets.xcassets */,
+				38777BE02824B3B6002D091F /* Screening.swift */,
 				38777BBA28241CA4002D091F /* Preview Content */,
 			);
 			path = medicare;
@@ -260,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38777BE12824B3B6002D091F /* Screening.swift in Sources */,
 				38777BB728241CA3002D091F /* ContentView.swift in Sources */,
 				38777BB528241CA3002D091F /* medicareApp.swift in Sources */,
 				38777BDF28245314002D091F /* ScreeningView.swift in Sources */,
