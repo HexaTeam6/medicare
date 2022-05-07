@@ -36,7 +36,20 @@ extension Screening{
             Input(option: "Perokok aktif"),
             Input(option: "Sedang berusaha berhenti merokok"),
             Input(option: "Tidak merokok")]),
+        Screening(pertanyaan: "Seberapa sering anda makan ayuran atau buah buahan?", jenisInput: "Option", input: [
+            Input(option: "Setiap hari"),
+            Input(option: "Tidak setiap hari")]),
+        Screening(pertanyaan: "Apakah mengonsumsi obat anti hipertensi secara reguler?", jenisInput: "Option", input: [
+            Input(option: "Tidak"),
+            Input(option: "Ya")]),
         Screening(pertanyaan: "Apakah anda pernah mengalami tekanan darat tinggi?", jenisInput: "Option", input: [
+            Input(option: "Ya"),
+            Input(option: "Tidak")]),
+        Screening(pertanyaan: "Apakah anda menderita gangguan irama jantung?", jenisInput: "Option", input: [
+            Input(option: "Ya"),
+            Input(option: "Tidak pernah"),
+            Input(option: "Tidak diketahui")]),
+        Screening(pertanyaan: "Apakah anda pernah mengalami peningkatan kadar gula darah? (saat hamil, sakit, pemeriksaan gula darah)", jenisInput: "Option", input: [
             Input(option: "Ya"),
             Input(option: "Tidak")]),
         Screening(pertanyaan: "Tekanan darah anda saat ini", jenisInput: "Option", input: [
@@ -44,9 +57,6 @@ extension Screening{
             Input(option: "120-139 / 80-89"),
             Input(option: "< 120/80"),
             Input(option: "Tidak diketahui")]),
-        Screening(pertanyaan: "Apakah anda pernah mengalami peningkatan kadar gula darah? (saat hamil, sakit, pemeriksaan gula darah)", jenisInput: "Option", input: [
-            Input(option: "Ya"),
-            Input(option: "Tidak")]),
         Screening(pertanyaan: "Kadar gula anda saat ini", jenisInput: "Option", input: [
             Input(option: "< 120"),
             Input(option: "120 - 150"),
@@ -66,16 +76,6 @@ extension Screening{
             Input(option: "Ya"),
             Input(option: "Tidak"),
             Input(option: "Tidak diketahui")]),
-        Screening(pertanyaan: "Apakah anda menderita gangguan irama jantung?", jenisInput: "Option", input: [
-            Input(option: "Ya"),
-            Input(option: "Tidak pernah"),
-            Input(option: "Tidak diketahui")]),
-        Screening(pertanyaan: "Seberapa sering anda makan ayuran atau buah buahan?", jenisInput: "Option", input: [
-            Input(option: "Setiap hari"),
-            Input(option: "Tidak setiap hari")]),
-        Screening(pertanyaan: "Apakah mengonsumsi obat anti hipertensi secara reguler?", jenisInput: "Option", input: [
-            Input(option: "Tidak"),
-            Input(option: "Ya")]),
         Screening(pertanyaan: "Apakah memiliki anggota keluarga atau saudara yang ter-diagnosa diabetes?", jenisInput: "Option", input: [
             Input(option: "Tidak"),
             Input(option: "Ya (Kakek/Nenek, Bibi, Paman, atau sepupu dekat)"),

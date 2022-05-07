@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		383F2E5A28250B75008C92BC /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383F2E5928250B75008C92BC /* Answer.swift */; };
+		386AFCC02826B5C200E14E91 /* HasilScreening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386AFCBF2826B5C200E14E91 /* HasilScreening.swift */; };
 		38777BB528241CA3002D091F /* medicareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BB428241CA3002D091F /* medicareApp.swift */; };
 		38777BB728241CA3002D091F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BB628241CA3002D091F /* ContentView.swift */; };
 		38777BB928241CA4002D091F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38777BB828241CA4002D091F /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		383F2E5928250B75008C92BC /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		386AFCBF2826B5C200E14E91 /* HasilScreening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasilScreening.swift; sourceTree = "<group>"; };
 		38777BB128241CA3002D091F /* medicare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = medicare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38777BB428241CA3002D091F /* medicareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicareApp.swift; sourceTree = "<group>"; };
 		38777BB628241CA3002D091F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			children = (
 				38777BE02824B3B6002D091F /* Screening.swift */,
 				383F2E5928250B75008C92BC /* Answer.swift */,
+				386AFCBF2826B5C200E14E91 /* HasilScreening.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				38777BB728241CA3002D091F /* ContentView.swift in Sources */,
 				383F2E5A28250B75008C92BC /* Answer.swift in Sources */,
 				38777BB528241CA3002D091F /* medicareApp.swift in Sources */,
+				386AFCC02826B5C200E14E91 /* HasilScreening.swift in Sources */,
 				38777BDF28245314002D091F /* ScreeningView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

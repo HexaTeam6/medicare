@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ScreeningView: View {
+    @Binding var rootIsActive: Bool
+    @Binding var hasilScreening: HasilScreening
+    
     @State private var screening_question: [Screening] = Screening.sampleData
     @State private var currentQuestion: Int = 0
     
@@ -44,7 +47,15 @@ struct ScreeningView: View {
                     .background(.white)
                     .cornerRadius(10)
                     
-                    NavigationButton(selected: $selected, inputNumber: $inputNumber, inputDate: $inputDate, userAnswer: $userAnswer, currentQuestion: $currentQuestion, showingAlert: $showingAlert, totalQuestion: screening_question.count)
+                    NavigationButton(selected: $selected,
+                                     inputNumber: $inputNumber,
+                                     inputDate: $inputDate,
+                                     userAnswer: $userAnswer,
+                                     currentQuestion: $currentQuestion,
+                                     showingAlert: $showingAlert,
+                                     totalQuestion: screening_question.count,
+                                     hasilScreening: $hasilScreening,
+                                     rootIsActive: $rootIsActive)
                 }
                 .padding(.horizontal, 25)
             }
@@ -69,7 +80,7 @@ struct ScreeningView: View {
 
 struct ScreeningView_Previews: PreviewProvider {
     static var previews: some View {
-        ScreeningView()
+        ScreeningView(rootIsActive: .constant(false), hasilScreening: .constant(HasilScreening()))
     }
 }
 
@@ -150,7 +161,6 @@ struct AnswerInput: View {
     }
 }
 
-
 // MARK: Navigation Button
 struct NavigationButton: View {
     @Binding var selected: String
@@ -163,12 +173,15 @@ struct NavigationButton: View {
     @Binding var showingAlert: Bool
     let totalQuestion: Int
     
+    @Binding var hasilScreening: HasilScreening
+    @Binding var rootIsActive: Bool
+    
     var body: some View {
         VStack(spacing: 0){
             Button(action: {
                 let dateFormatter = DateFormatter()
                 var answer: Answer = Answer()
-                dateFormatter.dateFormat = "dd MMMM, yyyy"
+                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
                 
                 // cek input berasal dari tipe input
                 if inputNumber != "" {
@@ -202,6 +215,15 @@ struct NavigationButton: View {
                 if(currentQuestion < totalQuestion - 1) {
                     currentQuestion += 1
                 }
+                else {
+                    hasilScreening.hasilDiabetes = calcDiabetes(userAnswer: userAnswer)
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "dd-MM-yyyy"
+                    hasilScreening.tglScreening = dateFormatter.string(from: Date())
+                    
+                    rootIsActive = false
+                }
                 
             }, label: {
                 Text(currentQuestion < totalQuestion - 1 ? "Selanjutnya" : "Simpan")
@@ -226,5 +248,87 @@ struct NavigationButton: View {
             }
         }
         .padding(.top, 20)
+    }
+    
+    func calcDiabetes(userAnswer: [Answer]) -> String {
+        var score: Int = 0
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let birthday = dateFormatter.date(from: userAnswer[1].input)!
+        let calendar = Calendar.current
+        let ageComponents = calendar.dateComponents([.year], from: birthday, to: Date())
+        
+        let age = ageComponents.year!
+        
+        // umur
+        if age > 64 {
+            score += 4
+        }
+        else if age >= 55 {
+            score += 3
+        }
+        else if age >= 45 {
+            score += 2
+        }
+        
+        // BMI
+        let bmi: Double = Double(userAnswer[3].input)! / pow(Double(userAnswer[2].input)! / 100, 2.0)
+        if bmi > 30 {
+            score += 3
+        }
+        else if bmi >= 25 {
+            score += 1
+        }
+        
+        // lingkar pinggang
+        if userAnswer[0].input == "Laki-laki" {
+            if Int(userAnswer[4].input)! > 102 {
+                score += 4
+            }
+            else if Int(userAnswer[4].input)! >= 94 {
+                score += 3
+            }
+        }
+        else if userAnswer[0].input == "Perempuan" {
+            if Int(userAnswer[4].input)! > 88 {
+                score += 4
+            }
+            else if Int(userAnswer[4].input)! >= 80 {
+                score += 3
+            }
+        }
+        
+        // aktivitas fisik
+        if userAnswer[5].input == "Tidak" {
+            score += 2
+        }
+        
+        // makan sayuran dan buah buahan
+        if userAnswer[7].input == "Tidak setiap hari" {
+            score += 1
+        }
+        
+        // pernah mengalami tekanan darah tinggi
+        if userAnswer[9].input == "Ya" {
+            score += 2
+        }
+        
+        // pernah punya darah tinggi
+        if userAnswer[11].input == "Ya" {
+            score += 5
+        }
+        
+        // keturunan diabetes
+        if userAnswer[17].input == "Ya (Orang tua, Kakak, Adik, atau Anak kandung)" {
+            score += 5
+        }
+        else if userAnswer[17].input == "Ya (Kakek/Nenek, Bibi, Paman, atau sepupu dekat)" {
+            score += 3
+        }
+        
+        if score >= 15 { return "Risiko tinggi" }
+        else if score >= 12 { return "Risiko sedang" }
+        else { return "Risiko rendah" }
     }
 }

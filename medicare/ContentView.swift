@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isActive: Bool = false
+    @State var hasilScreening: HasilScreening = HasilScreening()
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -17,18 +20,18 @@ struct ContentView: View {
                     Header()
                     
                     HStack(spacing: 20) {
-                        Card(penyakit: "Diabetes", risiko: "sedang", tanggalPeriksa: "10-04-2022")
-                        Card(penyakit: "Kolesterol", risiko: "rendah", tanggalPeriksa: "10-04-2022")
+                        Card(penyakit: "Diabetes", risiko: hasilScreening.hasilDiabetes, tanggalPeriksa: hasilScreening.tglScreening)
+                        Card(penyakit: "Kolesterol", risiko: hasilScreening.hasilKolesterol, tanggalPeriksa: hasilScreening.tglScreening)
                     }
                     .padding(.top, 20)
                     
                     HStack(spacing: 20) {
-                        Card(penyakit: "Stroke", risiko: "sedang", tanggalPeriksa: "10-04-2022")
-                        Card(penyakit: "Kebugaran", risiko: "rendah", tanggalPeriksa: "10-04-2022")
+                        Card(penyakit: "Stroke", risiko: hasilScreening.hasilStroke, tanggalPeriksa: hasilScreening.tglScreening)
+                        Card(penyakit: "Kebugaran", risiko: "", tanggalPeriksa: "Belum tersedia")
                     }
                     .padding(.top, 20)
                     
-                    StartScreening()
+                    StartScreening(isActive: $isActive, hasilScreening: $hasilScreening)
                     
                     Spacer()
                 }
@@ -78,7 +81,7 @@ struct Card: View {
                     .font(.system(size: 18, weight: .bold, design: .rounded))
                     .foregroundColor(Color("Navy"))
                 
-                Text("Risiko \(risiko)")
+                Text(risiko)
                     .font(.system(size: 16, weight: .regular, design: .rounded))
                     .foregroundColor(Color("Purple"))
                 
@@ -96,6 +99,9 @@ struct Card: View {
 }
 
 struct StartScreening: View {
+    @Binding var isActive: Bool
+    @Binding var hasilScreening: HasilScreening
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -115,7 +121,7 @@ struct StartScreening: View {
                 print("button pressed")
                 
             }) {
-                NavigationLink(destination: ScreeningView(), label: {
+                NavigationLink(destination: ScreeningView(rootIsActive: $isActive, hasilScreening: $hasilScreening), isActive: $isActive, label: {
                     Image(systemName: "chevron.right")
                         .foregroundColor(.white)
                         .font(.system(size: 30))
