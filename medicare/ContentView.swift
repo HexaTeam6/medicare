@@ -72,7 +72,7 @@ struct Card: View {
                 Image("icon-\(penyakit.lowercased())")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 30, height: 30)
+                    .frame(width: 25, height: 25)
                 
                 Text(penyakit)
                     .font(.system(size: 18, weight: .bold, design: .rounded))

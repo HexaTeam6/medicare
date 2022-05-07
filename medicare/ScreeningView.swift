@@ -19,6 +19,8 @@ struct ScreeningView: View {
     
     @FocusState private var numberIsFocused: Bool
     
+    @State private var showingAlert: Bool = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -42,7 +44,7 @@ struct ScreeningView: View {
                     .background(.white)
                     .cornerRadius(10)
                     
-                    NavigationButton(selected: $selected, inputNumber: $inputNumber, inputDate: $inputDate, userAnswer: $userAnswer, currentQuestion: $currentQuestion, totalQuestion: screening_question.count)
+                    NavigationButton(selected: $selected, inputNumber: $inputNumber, inputDate: $inputDate, userAnswer: $userAnswer, currentQuestion: $currentQuestion, showingAlert: $showingAlert, totalQuestion: screening_question.count)
                 }
                 .padding(.horizontal, 25)
             }
@@ -55,6 +57,11 @@ struct ScreeningView: View {
                         numberIsFocused = false
                     }
                 }
+            }
+            .alert("Error", isPresented: $showingAlert) {
+                Button("OK"){ }
+            } message: {
+                Text("Input tidak sesuai!")
             }
         }
     }
@@ -149,10 +156,11 @@ struct NavigationButton: View {
     @Binding var selected: String
     @Binding var inputNumber: String
     @Binding var inputDate: Date
-
+    
     @Binding var userAnswer: [Answer]
     
     @Binding var currentQuestion: Int
+    @Binding var showingAlert: Bool
     let totalQuestion: Int
     
     var body: some View {
@@ -176,6 +184,12 @@ struct NavigationButton: View {
                     inputDate = Date.now
                 }
                 
+                // tampilkan alert jika user tidak menginput jawaban
+                if answer.input == "" {
+                    showingAlert = true
+                    return
+                }
+                
                 // cek apakah sudah pernah di jawab sebelumnya
                 if userAnswer.indices.contains(currentQuestion) {
                     userAnswer[currentQuestion] = answer
@@ -187,10 +201,7 @@ struct NavigationButton: View {
                 // lanjut ke pertanyaan selanjutnya
                 if(currentQuestion < totalQuestion - 1) {
                     currentQuestion += 1
-                    print(currentQuestion)
                 }
-                
-                print(userAnswer)
                 
             }, label: {
                 Text(currentQuestion < totalQuestion - 1 ? "Selanjutnya" : "Simpan")
