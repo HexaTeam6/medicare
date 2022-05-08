@@ -52,7 +52,7 @@ struct ContentView_Previews: PreviewProvider {
 struct Header: View {
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Selamat pagi,")
+            Text(greetingLogic())
                 .font(.system(size: 32, weight: .light, design: .rounded))
             Text("Wahed")
                 .font(.system(size: 32, weight: .bold, design: .rounded))
@@ -61,6 +61,29 @@ struct Header: View {
         .foregroundColor(Color("Navy"))
         .padding(.horizontal, 25)
         .padding(.top, 108)
+    }
+    
+    func greetingLogic() -> String {
+      let hour = Calendar.current.component(.hour, from: Date())
+      
+      let newDay = 0
+      let noon = 12
+      let sunset = 18
+      let midnight = 24
+      
+      var greetingText = "Halo," // Default greeting text
+      switch hour {
+      case newDay..<noon:
+          greetingText = "Selamat pagi,"
+      case noon..<sunset:
+          greetingText = "Selamat petang,"
+      case sunset..<midnight:
+          greetingText = "Selamat malam,"
+      default:
+          _ = "Halo,"
+      }
+      
+      return greetingText
     }
 }
 

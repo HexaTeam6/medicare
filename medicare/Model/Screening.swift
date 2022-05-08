@@ -36,7 +36,7 @@ extension Screening{
             Input(option: "Perokok aktif"),
             Input(option: "Sedang berusaha berhenti merokok"),
             Input(option: "Tidak merokok")]),
-        Screening(pertanyaan: "Seberapa sering anda makan ayuran atau buah buahan?", jenisInput: "Option", input: [
+        Screening(pertanyaan: "Seberapa sering anda makan sayuran atau buah buahan?", jenisInput: "Option", input: [
             Input(option: "Setiap hari"),
             Input(option: "Tidak setiap hari")]),
         Screening(pertanyaan: "Apakah mengonsumsi obat anti hipertensi secara reguler?", jenisInput: "Option", input: [
