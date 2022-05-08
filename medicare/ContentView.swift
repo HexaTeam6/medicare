@@ -27,7 +27,7 @@ struct ContentView: View {
                     
                     HStack(spacing: 20) {
                         Card(penyakit: "Stroke", risiko: hasilScreening.hasilStroke, tanggalPeriksa: hasilScreening.tglScreening)
-                        Card(penyakit: "Kebugaran", risiko: "", tanggalPeriksa: "Belum tersedia")
+                        Card(penyakit: "Kebugaran", risiko: "", tanggalPeriksa: "Fitur belum tersedia")
                     }
                     .padding(.top, 20)
                     

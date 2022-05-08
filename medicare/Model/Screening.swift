@@ -40,8 +40,8 @@ extension Screening{
             Input(option: "Setiap hari"),
             Input(option: "Tidak setiap hari")]),
         Screening(pertanyaan: "Apakah mengonsumsi obat anti hipertensi secara reguler?", jenisInput: "Option", input: [
-            Input(option: "Tidak"),
-            Input(option: "Ya")]),
+            Input(option: "Ya"),
+            Input(option: "Tidak")]),
         Screening(pertanyaan: "Apakah anda pernah mengalami tekanan darat tinggi?", jenisInput: "Option", input: [
             Input(option: "Ya"),
             Input(option: "Tidak")]),
