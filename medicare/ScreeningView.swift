@@ -218,6 +218,7 @@ struct NavigationButton: View {
                 else {
                     hasilScreening.hasilDiabetes = calcDiabetes(userAnswer: userAnswer)
                     hasilScreening.hasilKolesterol = calcKolesterol(userAnswer: userAnswer)
+                    hasilScreening.hasilStroke = calcStroke(userAnswer: userAnswer)
                     
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "dd-MM-yyyy"
@@ -552,6 +553,158 @@ struct NavigationButton: View {
         }
         else if kolesterol_res >= 20 {
             hasil = "Risiko Tinggi"
+        }
+        
+        return hasil
+    }
+    
+    // MARK: Calculate Stroke
+    func calcStroke (userAnswer: [Answer]) -> String {
+        var high: Int = 0
+        var medium: Int = 0
+        var low: Int = 0
+        
+        // BMI
+        let bmi: Double = Double(userAnswer[3].input)! / pow(Double(userAnswer[2].input)! / 100, 2.0)
+        if bmi <= 25 {
+            low += 1
+        }
+        else if bmi <= 30 {
+            medium += 1
+        }
+        else {
+            high += 1
+        }
+        
+        // aktivitas fisik
+        if userAnswer[5].input == "Ya" {
+            low += 1
+        }
+        else if userAnswer[5].input == "Jarang" {
+            medium += 1
+        }
+        else {
+            high += 1
+        }
+        
+        // merokok
+        if userAnswer[6].input == "Tidak merokok" {
+            low += 1
+        }
+        else if userAnswer[6].input == "Sedang berusaha berhenti merokok" {
+            medium += 1
+        }
+        else {
+            high += 1
+        }
+        
+        // tekanan darah
+        if userAnswer[12].input == "< 120/80" {
+            low += 1
+        }
+        else if userAnswer[12].input == "120-139 / 80-89" {
+            medium += 1
+        }
+        else {
+            high += 1
+        }
+        
+        // kadar kolesterol
+        if userAnswer[14].input == "< 200" {
+            low += 1
+        }
+        else if userAnswer[14].input == "200 - 239" {
+            medium += 1
+        }
+        else {
+            high += 1
+        }
+        
+        // Riwayat stroke
+        if userAnswer[16].input == "Tidak" {
+            low += 1
+        }
+        else if userAnswer[16].input == "Tidak diketahui" {
+            medium += 1
+        }
+        else {
+            high += 1
+        }
+        
+        // irama jantung
+        if userAnswer[10].input == "Tidak" {
+            low += 1
+        }
+        else if userAnswer[10].input == "Tidak diketahui" {
+            medium += 1
+        }
+        else {
+            high += 1
+        }
+        
+        // kadar gula
+        if userAnswer[13].input == "< 120" {
+            low += 1
+        }
+        else if userAnswer[13].input == "120 - 150" {
+            medium += 1
+        }
+        else {
+            high += 1
+        }
+        
+        var hasil = ""
+        
+        if high >= 3 {
+            hasil = "Risiko Tinggi"
+        }
+        else {
+            if high == 2 {
+                if medium >= 3 {
+                    hasil = "Risiko Tinggi"
+                }
+                else if medium >= 2 {
+                    hasil = "Risiko Menengah"
+                }
+                else {
+                    hasil = "Risiko Rendah"
+                }
+            }
+            else if high == 1 {
+                if medium >= 5 {
+                    hasil = "Risiko Tinggi"
+                }
+                else if medium >= 3 {
+                    hasil = "Risiko Menengah"
+                }
+                else {
+                    hasil = "Risiko Rendah"
+                }
+            }
+            else if medium >= 4 {
+                hasil = "Risiko Menengah"
+            }
+            else {
+                if medium == 3 {
+                    if low >= 3 {
+                        hasil = "Risiko Menengah"
+                    }
+                    else {
+                        hasil = "Risiko Rendah"
+                    }
+                }
+                else if medium == 2 {
+                    if low >= 5 {
+                        hasil = "Risiko Menengah"
+                    }
+                    else {
+                        hasil = "Risiko Rendah"
+                    }
+                }
+                else if low >= 6 {
+                    hasil = "Risiko Rendah"
+                }
+            }
         }
         
         return hasil
