@@ -21,64 +21,64 @@ struct Screening: Identifiable{
 
 extension Screening{
     static var sampleData = [
-        Screening(pertanyaan: "Jenis kelamin", jenisInput: "Option", input: [
-            Input(option: "Laki-laki"),
-            Input(option: "Perempuan")]),
-        Screening(pertanyaan: "Tanggal lahir", jenisInput: "Date"),
-        Screening(pertanyaan: "Tinggi badan", jenisInput: "Number"),
-        Screening(pertanyaan: "Berat badan", jenisInput: "Number"),
-        Screening(pertanyaan: "Ukuran lingkar pinggang", jenisInput: "Number"),
-        Screening(pertanyaan: "Apakah anda aktif melakukan aktivitas fisik?", jenisInput: "Option", input: [
-            Input(option: "Ya"),
-            Input(option: "Tidak"),
-            Input(option: "Jarang")]),
-        Screening(pertanyaan: "Apakah anda merokok?", jenisInput: "Option", input: [
-            Input(option: "Perokok aktif"),
-            Input(option: "Sedang berusaha berhenti merokok"),
-            Input(option: "Tidak merokok")]),
-        Screening(pertanyaan: "Seberapa sering anda makan sayuran atau buah buahan?", jenisInput: "Option", input: [
-            Input(option: "Setiap hari"),
-            Input(option: "Tidak setiap hari")]),
-        Screening(pertanyaan: "Apakah mengonsumsi obat anti hipertensi secara reguler?", jenisInput: "Option", input: [
-            Input(option: "Ya"),
-            Input(option: "Tidak")]),
-        Screening(pertanyaan: "Apakah anda pernah mengalami tekanan darat tinggi?", jenisInput: "Option", input: [
-            Input(option: "Ya"),
-            Input(option: "Tidak")]),
-        Screening(pertanyaan: "Apakah anda menderita gangguan irama jantung?", jenisInput: "Option", input: [
-            Input(option: "Ya"),
-            Input(option: "Tidak pernah"),
-            Input(option: "Tidak diketahui")]),
-        Screening(pertanyaan: "Apakah anda pernah mengalami peningkatan kadar gula darah? (saat hamil, sakit, pemeriksaan gula darah)", jenisInput: "Option", input: [
-            Input(option: "Ya"),
-            Input(option: "Tidak")]),
-        Screening(pertanyaan: "Tekanan darah anda saat ini", jenisInput: "Option", input: [
+        Screening(pertanyaan: "Gender", jenisInput: "Option", input: [
+            Input(option: "Male"),
+            Input(option: "Female")]),
+        Screening(pertanyaan: "Born Date", jenisInput: "Date"),
+        Screening(pertanyaan: "Height", jenisInput: "Number"),
+        Screening(pertanyaan: "Weight", jenisInput: "Number"),
+        Screening(pertanyaan: "Waist size", jenisInput: "Number"),
+        Screening(pertanyaan: "Do you often do physical activities?", jenisInput: "Option", input: [
+            Input(option: "Yes"),
+            Input(option: "No"),
+            Input(option: "Seldom")]),
+        Screening(pertanyaan: "Do you smoke?", jenisInput: "Option", input: [
+            Input(option: "Yes"),
+            Input(option: "Trying to quit smoking"),
+            Input(option: "No")]),
+        Screening(pertanyaan: "How often do you eat fruits and vegetables", jenisInput: "Option", input: [
+            Input(option: "Everyday"),
+            Input(option: "Not Everyday")]),
+        Screening(pertanyaan: "Are you taking anti-hypertensive drugs regularly?", jenisInput: "Option", input: [
+            Input(option: "Yes"),
+            Input(option: "No")]),
+        Screening(pertanyaan: "Have you ever had high blood pressure?", jenisInput: "Option", input: [
+            Input(option: "Yes"),
+            Input(option: "No")]),
+        Screening(pertanyaan: "Do you suffer from heartbeat disorders?", jenisInput: "Option", input: [
+            Input(option: "Yes"),
+            Input(option: "No"),
+            Input(option: "Not Sure")]),
+        Screening(pertanyaan: "Have you ever experienced an increase in blood sugar levels? (when pregnant, sick, or when blood sugar checkup)", jenisInput: "Option", input: [
+            Input(option: "Yes"),
+            Input(option: "No")]),
+        Screening(pertanyaan: "Your current blood pressure", jenisInput: "Option", input: [
             Input(option: "> 140/90"),
             Input(option: "120-139 / 80-89"),
             Input(option: "< 120/80"),
-            Input(option: "Tidak diketahui")]),
-        Screening(pertanyaan: "Kadar gula anda saat ini", jenisInput: "Option", input: [
+            Input(option: "Not sure")]),
+        Screening(pertanyaan: "Your current blood sugar", jenisInput: "Option", input: [
             Input(option: "< 120"),
             Input(option: "120 - 150"),
             Input(option: "> 150"),
-            Input(option: "Tidak diketahui")]),
-        Screening(pertanyaan: "Kadar kolesterol anda saat ini (mmol/L)", jenisInput: "Option", input: [
+            Input(option: "Not sure")]),
+        Screening(pertanyaan: "Your current cholesterol level (mmol/L)", jenisInput: "Option", input: [
             Input(option: "> 240"),
             Input(option: "200 - 239"),
             Input(option: "< 200"),
-            Input(option: "Tidak diketahui")]),
-        Screening(pertanyaan: "Kadar kolesterol sehat (HDL) anda saat ini (mmol/L)", jenisInput: "Option", input: [
+            Input(option: "Not sure")]),
+        Screening(pertanyaan: "Your current healthy cholesterol levels (mmol/L)", jenisInput: "Option", input: [
             Input(option: "< 30"),
             Input(option: "30 - 50"),
             Input(option: "> 50"),
-            Input(option: "Tidak diketahui")]),
-        Screening(pertanyaan: "Apakah keluarga memiliki riwayat stroke?", jenisInput: "Option", input: [
-            Input(option: "Ya"),
-            Input(option: "Tidak"),
-            Input(option: "Tidak diketahui")]),
-        Screening(pertanyaan: "Apakah memiliki anggota keluarga atau saudara yang ter-diagnosa diabetes?", jenisInput: "Option", input: [
-            Input(option: "Tidak"),
-            Input(option: "Ya (Kakek/Nenek, Bibi, Paman, atau sepupu dekat)"),
-            Input(option: "Ya (Orang tua, Kakak, Adik, atau Anak kandung)")])
+            Input(option: "Not sure")]),
+        Screening(pertanyaan: "Does your family have a history of stroke?", jenisInput: "Option", input: [
+            Input(option: "Yes"),
+            Input(option: "No"),
+            Input(option: "Not sure")]),
+        Screening(pertanyaan: "Have a family member or relative ever vdiagnosed with diabetes?", jenisInput: "Option", input: [
+            Input(option: "No"),
+            Input(option: "Yes (Grandfather/Grandmother, Aunt, Uncle, or cousins)"),
+            Input(option: "Yes (Parents, Brothers, Sisters or Biological Child)")])
     ]
 }

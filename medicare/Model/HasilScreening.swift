@@ -9,8 +9,8 @@ import Foundation
 
 struct HasilScreening: Identifiable{
     var id: String = UUID().uuidString
-    var hasilDiabetes: String = "Belum screening"
-    var hasilKolesterol: String = "Belum screening"
-    var hasilStroke: String = "Belum screening"
+    var hasilDiabetes: String = "Not screened yet"
+    var hasilKolesterol: String = "Not screened yet"
+    var hasilStroke: String = "Not screened yet"
     var tglScreening: String = ""
 }

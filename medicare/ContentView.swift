@@ -21,13 +21,13 @@ struct ContentView: View {
                     
                     HStack(spacing: 20) {
                         Card(penyakit: "Diabetes", risiko: hasilScreening.hasilDiabetes, tanggalPeriksa: hasilScreening.tglScreening)
-                        Card(penyakit: "Kolesterol", risiko: hasilScreening.hasilKolesterol, tanggalPeriksa: hasilScreening.tglScreening)
+                        Card(penyakit: "Cholesterol", risiko: hasilScreening.hasilKolesterol, tanggalPeriksa: hasilScreening.tglScreening)
                     }
                     .padding(.top, 20)
                     
                     HStack(spacing: 20) {
                         Card(penyakit: "Stroke", risiko: hasilScreening.hasilStroke, tanggalPeriksa: hasilScreening.tglScreening)
-                        Card(penyakit: "Kebugaran", risiko: "", tanggalPeriksa: "Fitur belum tersedia")
+                        Card(penyakit: "Fitness", risiko: "", tanggalPeriksa: "Feature not yet available")
                     }
                     .padding(.top, 20)
                     
@@ -71,16 +71,16 @@ struct Header: View {
       let sunset = 18
       let midnight = 24
       
-      var greetingText = "Halo," // Default greeting text
+      var greetingText = "Hello," // Default greeting text
       switch hour {
       case newDay..<noon:
-          greetingText = "Selamat pagi,"
+          greetingText = "Good morning,"
       case noon..<sunset:
-          greetingText = "Selamat petang,"
+          greetingText = "Good afternoon,"
       case sunset..<midnight:
-          greetingText = "Selamat malam,"
+          greetingText = "Good evening,"
       default:
-          _ = "Halo,"
+          _ = "Hello,"
       }
       
       return greetingText
@@ -128,10 +128,10 @@ struct StartScreening: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("Screening Risiko")
+                Text("Risk Screening")
                     .font(.system(size: 18, weight: .medium, design: .rounded))
                 
-                Text("Diabetes, kolesterol, stroke")
+                Text("Diabetes, cholesterol, stroke")
                     .font(.system(size: 14, weight: .light, design: .rounded))
             }
             .foregroundColor(Color("Navy"))

@@ -72,7 +72,7 @@ struct ScreeningView: View {
             .alert("Error", isPresented: $showingAlert) {
                 Button("OK"){ }
             } message: {
-                Text("Input tidak sesuai!")
+                Text("Invalid input!")
             }
         }
     }
@@ -102,7 +102,7 @@ struct ProgressCounter: View {
                     .foregroundColor(Color("Purple"))
             }
             
-            Text("dari \(total)")
+            Text("of \(total)")
                 .font(.system(size: 16, weight: .light, design: .rounded))
                 .foregroundColor(Color("Gray"))
         }
@@ -181,7 +181,7 @@ struct NavigationButton: View {
             Button(action: {
                 let dateFormatter = DateFormatter()
                 var answer: Answer = Answer()
-                dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                dateFormatter.dateFormat = "dd-MM-yyyy"
                 
                 // cek input berasal dari tipe input
                 if inputNumber != "" {
@@ -193,9 +193,12 @@ struct NavigationButton: View {
                     selected = ""
                 }
                 else if dateFormatter.string(from: inputDate) != dateFormatter.string(from: Date.now) {
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
                     answer = Answer(input: dateFormatter.string(from: inputDate))
                     inputDate = Date.now
                 }
+                
+                print(answer.input)
                 
                 // tampilkan alert jika user tidak menginput jawaban
                 if answer.input == "" {
@@ -228,7 +231,7 @@ struct NavigationButton: View {
                 }
                 
             }, label: {
-                Text(currentQuestion < totalQuestion - 1 ? "Selanjutnya" : "Simpan")
+                Text(currentQuestion < totalQuestion - 1 ? "Next" : "Save")
                     .font(.system(size: 16, weight: .medium, design: .rounded))
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
@@ -242,7 +245,7 @@ struct NavigationButton: View {
                     currentQuestion -= 1
                     print(currentQuestion)
                 }, label: {
-                    Text("Sebelumnya")
+                    Text("Previous")
                         .font(.system(size: 16, weight: .light, design: .rounded))
                         .foregroundColor(Color("Navy"))
                         .padding(10)
@@ -285,7 +288,7 @@ struct NavigationButton: View {
         }
         
         // lingkar pinggang
-        if userAnswer[0].input == "Laki-laki" {
+        if userAnswer[0].input == "Male" {
             if Int(userAnswer[4].input)! > 102 {
                 score += 4
             }
@@ -293,7 +296,7 @@ struct NavigationButton: View {
                 score += 3
             }
         }
-        else if userAnswer[0].input == "Perempuan" {
+        else if userAnswer[0].input == "Female" {
             if Int(userAnswer[4].input)! > 88 {
                 score += 4
             }
@@ -303,36 +306,36 @@ struct NavigationButton: View {
         }
         
         // aktivitas fisik
-        if userAnswer[5].input == "Tidak" {
+        if userAnswer[5].input == "No" {
             score += 2
         }
         
         // makan sayuran dan buah buahan
-        if userAnswer[7].input == "Tidak setiap hari" {
+        if userAnswer[7].input == "Not Everyday" {
             score += 1
         }
         
         // pernah mengalami tekanan darah tinggi
-        if userAnswer[9].input == "Ya" {
+        if userAnswer[9].input == "Yes" {
             score += 2
         }
         
         // pernah punya gula darat tinggi
-        if userAnswer[11].input == "Ya" {
+        if userAnswer[11].input == "Yes" {
             score += 5
         }
         
         // keturunan diabetes
-        if userAnswer[17].input == "Ya (Orang tua, Kakak, Adik, atau Anak kandung)" {
+        if userAnswer[17].input == "Yes (Grandfather/Grandmother, Aunt, Uncle, or cousins)" {
             score += 5
         }
-        else if userAnswer[17].input == "Ya (Kakek/Nenek, Bibi, Paman, atau sepupu dekat)" {
+        else if userAnswer[17].input == "Yes (Parents, Brothers, Sisters or Biological Child)" {
             score += 3
         }
         
-        if score >= 15 { return "Risiko tinggi" }
-        else if score >= 12 { return "Risiko sedang" }
-        else { return "Risiko rendah" }
+        if score >= 15 { return "High risk" }
+        else if score >= 12 { return "Medium risk" }
+        else { return "Low risk" }
     }
     
     
@@ -357,27 +360,27 @@ struct NavigationButton: View {
         var hdl = 0
         
         // jenis kelamin
-        if userAnswer[0].input == "Laki-laki" {
+        if userAnswer[0].input == "Male" {
             isMale = true
         }
         
         // merokok
-        if userAnswer[6].input == "Tidak merokok" {
+        if userAnswer[6].input == "No" {
             smoker = false
         }
         
         // menggunakan obat hipertensi
-        if userAnswer[8].input == "Ya" {
+        if userAnswer[8].input == "Yes" {
             hypertensive = false
         }
         
         // gula darah pernah tinggi
-        if userAnswer[11].input == "Ya" {
+        if userAnswer[11].input == "Yes" {
             diabetic = true
         }
         
         // keturunan diabetes
-        if userAnswer[17].input == "Ya (Orang tua, Kakak, Adik, atau Anak kandung)" || userAnswer[17].input == "Ya (Kakek/Nenek, Bibi, Paman, atau sepupu dekat)" {
+        if userAnswer[17].input == "Yes (Grandfather/Grandmother, Aunt, Uncle, or cousins)" || userAnswer[17].input == "Yes (Parents, Brothers, Sisters or Biological Child)" {
             diabetic = true
         }
         
@@ -417,7 +420,7 @@ struct NavigationButton: View {
         hdl = 40
         
         if age < 40 || age > 79 {
-            return "Tidak berisiko"
+            return "No risk"
         }
         
         let lnAge = log(Double(age))
@@ -543,16 +546,16 @@ struct NavigationButton: View {
         var hasil = "";
         
         if kolesterol_res < 5 {
-            hasil = "Tidak Berisiko"
+            hasil = "No risk"
         }
         else if kolesterol_res >= 5 && kolesterol_res < 7.4 {
-            hasil = "Risiko Rendah"
+            hasil = "Low risk"
         }
         else if kolesterol_res >= 7.5 && kolesterol_res < 19.9 {
-            hasil = "Risiko Menengah";
+            hasil = "Medium risk";
         }
         else if kolesterol_res >= 20 {
-            hasil = "Risiko Tinggi"
+            hasil = "High risk"
         }
         
         return hasil
@@ -577,10 +580,10 @@ struct NavigationButton: View {
         }
         
         // aktivitas fisik
-        if userAnswer[5].input == "Ya" {
+        if userAnswer[5].input == "Yes" {
             low += 1
         }
-        else if userAnswer[5].input == "Jarang" {
+        else if userAnswer[5].input == "Seldom" {
             medium += 1
         }
         else {
@@ -588,10 +591,10 @@ struct NavigationButton: View {
         }
         
         // merokok
-        if userAnswer[6].input == "Tidak merokok" {
+        if userAnswer[6].input == "No" {
             low += 1
         }
-        else if userAnswer[6].input == "Sedang berusaha berhenti merokok" {
+        else if userAnswer[6].input == "Trying to quit smoking" {
             medium += 1
         }
         else {
@@ -621,10 +624,10 @@ struct NavigationButton: View {
         }
         
         // Riwayat stroke
-        if userAnswer[16].input == "Tidak" {
+        if userAnswer[16].input == "No" {
             low += 1
         }
-        else if userAnswer[16].input == "Tidak diketahui" {
+        else if userAnswer[16].input == "Not Sure" {
             medium += 1
         }
         else {
@@ -632,10 +635,10 @@ struct NavigationButton: View {
         }
         
         // irama jantung
-        if userAnswer[10].input == "Tidak" {
+        if userAnswer[10].input == "No" {
             low += 1
         }
-        else if userAnswer[10].input == "Tidak diketahui" {
+        else if userAnswer[10].input == "Not Sure" {
             medium += 1
         }
         else {
@@ -656,53 +659,53 @@ struct NavigationButton: View {
         var hasil = ""
         
         if high >= 3 {
-            hasil = "Risiko Tinggi"
+            hasil = "High risk"
         }
         else {
             if high == 2 {
                 if medium >= 3 {
-                    hasil = "Risiko Tinggi"
+                    hasil = "High risk"
                 }
                 else if medium >= 2 {
-                    hasil = "Risiko Menengah"
+                    hasil = "Medium risk"
                 }
                 else {
-                    hasil = "Risiko Rendah"
+                    hasil = "Low risk"
                 }
             }
             else if high == 1 {
                 if medium >= 5 {
-                    hasil = "Risiko Tinggi"
+                    hasil = "High risk"
                 }
                 else if medium >= 3 {
-                    hasil = "Risiko Menengah"
+                    hasil = "Medium risk"
                 }
                 else {
-                    hasil = "Risiko Rendah"
+                    hasil = "Low risk"
                 }
             }
             else if medium >= 4 {
-                hasil = "Risiko Menengah"
+                hasil = "Medium risk"
             }
             else {
                 if medium == 3 {
                     if low >= 3 {
-                        hasil = "Risiko Menengah"
+                        hasil = "Medium risk"
                     }
                     else {
-                        hasil = "Risiko Rendah"
+                        hasil = "Low risk"
                     }
                 }
                 else if medium == 2 {
                     if low >= 5 {
-                        hasil = "Risiko Menengah"
+                        hasil = "Medium risk"
                     }
                     else {
-                        hasil = "Risiko Rendah"
+                        hasil = "Low risk"
                     }
                 }
                 else if low >= 6 {
-                    hasil = "Risiko Rendah"
+                    hasil = "Low risk"
                 }
             }
         }
