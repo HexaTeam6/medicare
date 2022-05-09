@@ -39,7 +39,7 @@ extension Screening{
         Screening(pertanyaan: "How often do you eat fruits and vegetables", jenisInput: "Option", input: [
             Input(option: "Everyday"),
             Input(option: "Not Everyday")]),
-        Screening(pertanyaan: "Are you taking anti-hypertensive drugs regularly?", jenisInput: "Option", input: [
+        Screening(pertanyaan: "Are you taking antihypertensive drugs regularly?", jenisInput: "Option", input: [
             Input(option: "Yes"),
             Input(option: "No")]),
         Screening(pertanyaan: "Have you ever had high blood pressure?", jenisInput: "Option", input: [
@@ -76,7 +76,7 @@ extension Screening{
             Input(option: "Yes"),
             Input(option: "No"),
             Input(option: "Not sure")]),
-        Screening(pertanyaan: "Have a family member or relative ever vdiagnosed with diabetes?", jenisInput: "Option", input: [
+        Screening(pertanyaan: "Have a family member or relative ever diagnosed with diabetes?", jenisInput: "Option", input: [
             Input(option: "No"),
             Input(option: "Yes (Grandfather/Grandmother, Aunt, Uncle, or cousins)"),
             Input(option: "Yes (Parents, Brothers, Sisters or Biological Child)")])

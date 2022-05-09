@@ -18,16 +18,23 @@ struct ContentView: View {
                 
                 VStack(spacing: 0) {
                     Header()
+                        .accessibility(sortPriority: 4)
                     
                     HStack(spacing: 20) {
-                        Card(penyakit: "Diabetes", risiko: hasilScreening.hasilDiabetes, tanggalPeriksa: hasilScreening.tglScreening)
+                        Card(penyakit: "Diabetes", risiko: hasilScreening.hasilDiabetes, tanggalPeriksa: "09 May, 2022")
+                            .accessibility(sortPriority: 3)
+                        
                         Card(penyakit: "Cholesterol", risiko: hasilScreening.hasilKolesterol, tanggalPeriksa: hasilScreening.tglScreening)
+                            .accessibility(sortPriority: 2)
                     }
                     .padding(.top, 20)
                     
                     HStack(spacing: 20) {
                         Card(penyakit: "Stroke", risiko: hasilScreening.hasilStroke, tanggalPeriksa: hasilScreening.tglScreening)
+                            .accessibility(sortPriority: 1)
+                        
                         Card(penyakit: "Fitness", risiko: "", tanggalPeriksa: "Feature not yet available")
+                            .accessibility(sortPriority: 0)
                     }
                     .padding(.top, 20)
                     
@@ -35,6 +42,7 @@ struct ContentView: View {
                     
                     Spacer()
                 }
+                .accessibilityElement(children: .contain)
             }
             .ignoresSafeArea()
         }
@@ -49,6 +57,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+// MARK: Header
 struct Header: View {
     var body: some View {
         VStack(alignment: .leading) {
@@ -87,6 +96,7 @@ struct Header: View {
     }
 }
 
+// MARK: CARD
 struct Card: View {
     let penyakit: String
     let risiko: String
@@ -99,6 +109,7 @@ struct Card: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 25, height: 25)
+                    .accessibilityHidden(true)
                 
                 Text(penyakit)
                     .font(.system(size: 18, weight: .bold, design: .rounded))
@@ -107,11 +118,14 @@ struct Card: View {
                 Text(risiko)
                     .font(.system(size: 16, weight: .regular, design: .rounded))
                     .foregroundColor(Color("Purple"))
+                    .accessibilityHidden(risiko == "" ? true : false)
                 
                 Text(tanggalPeriksa)
                     .font(.system(size: 14, weight: .regular, design: .rounded))
                     .foregroundColor(Color("Gray"))
                     .padding(.top, 1)
+                    .accessibilityHidden(tanggalPeriksa == "" ? true : false)
+                    .accessibilityLabel("screened on \(tanggalPeriksa)")
             }
             .padding(.leading, 15)
         }
@@ -121,6 +135,7 @@ struct Card: View {
     }
 }
 
+// MARK: Start Screening
 struct StartScreening: View {
     @Binding var isActive: Bool
     @Binding var hasilScreening: HasilScreening
@@ -155,6 +170,7 @@ struct StartScreening: View {
             .background(Color("Navy"))
             .cornerRadius(10)
             .padding()
+            .accessibilityLabel("start screening")
         }
         .background(Color("Purple").opacity(0.20))
         .cornerRadius(10)

@@ -67,6 +67,7 @@ struct ScreeningView: View {
                     Button("Done") {
                         numberIsFocused = false
                     }
+                    .accessibilityAddTraits(.isKeyboardKey)
                 }
             }
             .alert("Error", isPresented: $showingAlert) {
@@ -150,6 +151,7 @@ struct AnswerInput: View {
                     .padding(15)
                     .background(Color("Light-Gray"))
                     .cornerRadius(10)
+                    .accessibilityLabel("input field")
             }
             else if (jenisInput == "Date") {
                 DatePicker("", selection: $inputDate, in: ...Date(), displayedComponents: .date)
@@ -224,14 +226,14 @@ struct NavigationButton: View {
                     hasilScreening.hasilStroke = calcStroke(userAnswer: userAnswer)
                     
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "dd-MM-yyyy"
+                    dateFormatter.dateFormat = "dd MMM, yyyy"
                     hasilScreening.tglScreening = dateFormatter.string(from: Date())
                     
                     rootIsActive = false
                 }
                 
             }, label: {
-                Text(currentQuestion < totalQuestion - 1 ? "Next" : "Save")
+                Text(currentQuestion < totalQuestion - 1 ? "Next" : "Submit")
                     .font(.system(size: 16, weight: .medium, design: .rounded))
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
