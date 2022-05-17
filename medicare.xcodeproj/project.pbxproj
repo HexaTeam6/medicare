@@ -17,6 +17,7 @@
 		38423C8928337B30006D052E /* Kolesterol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38423C8828337B30006D052E /* Kolesterol.swift */; };
 		38423C8B28337D28006D052E /* Stroke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38423C8A28337D28006D052E /* Stroke.swift */; };
 		38423C8D28337D55006D052E /* Hasil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38423C8C28337D55006D052E /* Hasil.swift */; };
+		38423C912833D69D006D052E /* HistoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38423C902833D69D006D052E /* HistoryCard.swift */; };
 		38777BB528241CA3002D091F /* medicareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BB428241CA3002D091F /* medicareApp.swift */; };
 		38777BB728241CA3002D091F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BB628241CA3002D091F /* ContentView.swift */; };
 		38777BB928241CA4002D091F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38777BB828241CA4002D091F /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		38423C8828337B30006D052E /* Kolesterol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kolesterol.swift; sourceTree = "<group>"; };
 		38423C8A28337D28006D052E /* Stroke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stroke.swift; sourceTree = "<group>"; };
 		38423C8C28337D55006D052E /* Hasil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hasil.swift; sourceTree = "<group>"; };
+		38423C902833D69D006D052E /* HistoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCard.swift; sourceTree = "<group>"; };
 		38777BB128241CA3002D091F /* medicare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = medicare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38777BB428241CA3002D091F /* medicareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicareApp.swift; sourceTree = "<group>"; };
 		38777BB628241CA3002D091F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				38423C7C283377DE006D052E /* StartScreening.swift */,
 				38423C7E28337819006D052E /* Card.swift */,
 				38423C80283378C5006D052E /* ProgressCounter.swift */,
+				38423C902833D69D006D052E /* HistoryCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				387B5D64282EADD800812826 /* DataController.swift in Sources */,
 				38423C7F28337819006D052E /* Card.swift in Sources */,
 				38423C77282EB60D006D052E /* HasilRisiko.swift in Sources */,
+				38423C912833D69D006D052E /* HistoryCard.swift in Sources */,
 				38777BDF28245314002D091F /* ScreeningView.swift in Sources */,
 				38423C7D283377DE006D052E /* StartScreening.swift in Sources */,
 				38423C8928337B30006D052E /* Kolesterol.swift in Sources */,

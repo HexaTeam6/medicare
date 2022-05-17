@@ -47,11 +47,29 @@ struct ContentView: View {
                     
                     StartScreening(isActive: $isActive)
                     
+                    Text("History")
+                        .font(.system(size: 18, weight: .semibold, design: .rounded))
+                        .foregroundColor(Color("Navy"))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 20)
+                        .padding(.leading, 25)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 20) {
+                            HistoryCard(penyakit: "Diabetes")
+                                .padding(.leading, 25)
+                            HistoryCard(penyakit: "Cholesterol")
+                            HistoryCard(penyakit: "Stroke")
+                        }
+                    }
+                    .padding(.top, 10)
+                    
                     Spacer()
                 }
                 .accessibilityElement(children: .contain)
             }
             .ignoresSafeArea()
+            .frame(maxHeight: .infinity)
         }
     }
 }
