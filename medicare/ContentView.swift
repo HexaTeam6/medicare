@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Hasil.created_at, ascending: false)],
+            animation: .default)
+        private var hasil: FetchedResults<Hasil>
+    
     @State var isActive: Bool = false
-    @State var hasilScreening: HasilScreening = HasilScreening()
     
     var body: some View {
         NavigationView {
@@ -17,20 +23,21 @@ struct ContentView: View {
                 Color("Light-Blue")
                 
                 VStack(spacing: 0) {
+                    
                     Header()
                         .accessibility(sortPriority: 4)
                     
                     HStack(spacing: 20) {
-                        Card(penyakit: "Diabetes", risiko: hasilScreening.hasilDiabetes, tanggalPeriksa: "09 May, 2022")
+                        Card(penyakit: "Diabetes", risiko: hasil.first?.hasilDiabetes ?? "Not screened yet", tanggalPeriksa: hasil.first?.tglScreening ?? "")
                             .accessibility(sortPriority: 3)
                         
-                        Card(penyakit: "Cholesterol", risiko: hasilScreening.hasilKolesterol, tanggalPeriksa: hasilScreening.tglScreening)
+                        Card(penyakit: "Cholesterol", risiko: hasil.first?.hasilKolesterol ?? "Not screened yet", tanggalPeriksa: hasil.first?.tglScreening ?? "")
                             .accessibility(sortPriority: 2)
                     }
                     .padding(.top, 20)
                     
                     HStack(spacing: 20) {
-                        Card(penyakit: "Stroke", risiko: hasilScreening.hasilStroke, tanggalPeriksa: hasilScreening.tglScreening)
+                        Card(penyakit: "Stroke", risiko: hasil.first?.hasilStroke ?? "Not screened yet", tanggalPeriksa: hasil.first?.tglScreening ?? "")
                             .accessibility(sortPriority: 1)
                         
                         Card(penyakit: "Fitness", risiko: "", tanggalPeriksa: "Feature not yet available")
@@ -38,7 +45,9 @@ struct ContentView: View {
                     }
                     .padding(.top, 20)
                     
-                    StartScreening(isActive: $isActive, hasilScreening: $hasilScreening)
+                    StartScreening(isActive: $isActive)
+                    
+                    Text("test \(hasil.count)")
                     
                     Spacer()
                 }
@@ -138,7 +147,6 @@ struct Card: View {
 // MARK: Start Screening
 struct StartScreening: View {
     @Binding var isActive: Bool
-    @Binding var hasilScreening: HasilScreening
     
     var body: some View {
         HStack {
@@ -159,7 +167,7 @@ struct StartScreening: View {
                 print("button pressed")
                 
             }) {
-                NavigationLink(destination: ScreeningView(rootIsActive: $isActive, hasilScreening: $hasilScreening), isActive: $isActive, label: {
+                NavigationLink(destination: ScreeningView(rootIsActive: $isActive), isActive: $isActive, label: {
                     Image(systemName: "chevron.right")
                         .foregroundColor(.white)
                         .font(.system(size: 30))

@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ScreeningView: View {
+    
     @Binding var rootIsActive: Bool
-    @Binding var hasilScreening: HasilScreening
     
     @State private var screening_question: [Screening] = Screening.sampleData
     @State private var currentQuestion: Int = 0
@@ -54,7 +54,6 @@ struct ScreeningView: View {
                                      currentQuestion: $currentQuestion,
                                      showingAlert: $showingAlert,
                                      totalQuestion: screening_question.count,
-                                     hasilScreening: $hasilScreening,
                                      rootIsActive: $rootIsActive)
                 }
                 .padding(.horizontal, 25)
@@ -81,7 +80,7 @@ struct ScreeningView: View {
 
 struct ScreeningView_Previews: PreviewProvider {
     static var previews: some View {
-        ScreeningView(rootIsActive: .constant(false), hasilScreening: .constant(HasilScreening()))
+        ScreeningView(rootIsActive: .constant(false))
     }
 }
 
@@ -165,6 +164,8 @@ struct AnswerInput: View {
 
 // MARK: Navigation Button
 struct NavigationButton: View {
+    @Environment(\.managedObjectContext) private var viewContext
+    
     @Binding var selected: String
     @Binding var inputNumber: String
     @Binding var inputDate: Date
@@ -175,7 +176,6 @@ struct NavigationButton: View {
     @Binding var showingAlert: Bool
     let totalQuestion: Int
     
-    @Binding var hasilScreening: HasilScreening
     @Binding var rootIsActive: Bool
     
     var body: some View {
@@ -200,7 +200,7 @@ struct NavigationButton: View {
                     inputDate = Date.now
                 }
                 
-                print(answer.input)
+                //print(answer.input)
                 
                 // tampilkan alert jika user tidak menginput jawaban
                 if answer.input == "" {
@@ -221,14 +221,7 @@ struct NavigationButton: View {
                     currentQuestion += 1
                 }
                 else {
-                    hasilScreening.hasilDiabetes = calcDiabetes(userAnswer: userAnswer)
-                    hasilScreening.hasilKolesterol = calcKolesterol(userAnswer: userAnswer)
-                    hasilScreening.hasilStroke = calcStroke(userAnswer: userAnswer)
-                    
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "dd MMM, yyyy"
-                    hasilScreening.tglScreening = dateFormatter.string(from: Date())
-                    
+                    addHasil()
                     rootIsActive = false
                 }
                 
@@ -257,8 +250,41 @@ struct NavigationButton: View {
         .padding(.top, 20)
     }
     
+    // MARK: Add Hasil
+    func addHasil(){
+        let newHasil = Hasil(context: viewContext)
+        
+        let hasilDiabetes = calcDiabetes(userAnswer: userAnswer)
+        let hasiKolesterol = calcKolesterol(userAnswer: userAnswer)
+        let hasilStroke = calcStroke(userAnswer: userAnswer)
+        
+        newHasil.id = UUID()
+        
+        newHasil.hasilDiabetes = hasilDiabetes.risiko
+        newHasil.scoreDiabetes = Int16(hasilDiabetes.score)
+        
+        newHasil.hasilKolesterol = hasiKolesterol.risiko
+        newHasil.scoreKolesterol = hasiKolesterol.score
+        
+        newHasil.hasilStroke = hasilStroke.risiko
+        newHasil.scoreStroke = Int16(hasilStroke.score)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMM, yyyy"
+        
+        newHasil.tglScreening = dateFormatter.string(from: Date())
+        newHasil.created_at = Date()
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print("Tidak bisa disimpan")
+        }
+        
+    }
+    
     // MARK: Calculate Diabetes
-    func calcDiabetes(userAnswer: [Answer]) -> String {
+    func calcDiabetes(userAnswer: [Answer]) -> HasilRisiko {
         var score: Int = 0
         
         let dateFormatter = DateFormatter()
@@ -335,14 +361,14 @@ struct NavigationButton: View {
             score += 3
         }
         
-        if score >= 15 { return "High risk" }
-        else if score >= 12 { return "Medium risk" }
-        else { return "Low risk" }
+        if score >= 15 { return HasilRisiko(risiko: "High risk", score: Double(score)) }
+        else if score >= 12 { return HasilRisiko(risiko: "Medium risk", score: Double(score)) }
+        else { return HasilRisiko(risiko: "Low risk", score: Double(score)) }
     }
     
     
     // MARK: Calculate Kolesterol
-    func calcKolesterol(userAnswer: [Answer]) -> String {
+    func calcKolesterol(userAnswer: [Answer]) -> HasilRisiko {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let birthday = dateFormatter.date(from: userAnswer[1].input)!
@@ -422,7 +448,7 @@ struct NavigationButton: View {
         hdl = 40
         
         if age < 40 || age > 79 {
-            return "No risk"
+            return HasilRisiko(risiko: "No risk", score: 0)
         }
         
         let lnAge = log(Double(age))
@@ -560,11 +586,11 @@ struct NavigationButton: View {
             hasil = "High risk"
         }
         
-        return hasil
+        return HasilRisiko(risiko: hasil, score: kolesterol_res)
     }
     
     // MARK: Calculate Stroke
-    func calcStroke (userAnswer: [Answer]) -> String {
+    func calcStroke (userAnswer: [Answer]) -> HasilRisiko {
         var high: Int = 0
         var medium: Int = 0
         var low: Int = 0
@@ -712,6 +738,6 @@ struct NavigationButton: View {
             }
         }
         
-        return hasil
+        return HasilRisiko(risiko: hasil, score: Double(0))
     }
 }
