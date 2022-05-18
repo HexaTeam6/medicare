@@ -56,10 +56,18 @@ struct ContentView: View {
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 20) {
-                            HistoryCard(penyakit: "Diabetes")
-                                .padding(.leading, 25)
-                            HistoryCard(penyakit: "Cholesterol")
-                            HistoryCard(penyakit: "Stroke")
+                            NavigationLink(destination: HistoryView(risiko: "Diabetes"), label:{
+                                HistoryCard(penyakit: "Diabetes")
+                                    .padding(.leading, 25)
+                            })
+                            
+                            NavigationLink(destination: HistoryView(risiko: "Cholesterol"), label:{
+                                HistoryCard(penyakit: "Cholesterol")
+                            })
+                            
+                            NavigationLink(destination: HistoryView(risiko: "Stroke"), label:{
+                                HistoryCard(penyakit: "Stroke")
+                            })
                         }
                     }
                     .padding(.top, 10)

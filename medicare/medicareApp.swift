@@ -13,7 +13,7 @@ struct medicareApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HistoryView()
+            ContentView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }

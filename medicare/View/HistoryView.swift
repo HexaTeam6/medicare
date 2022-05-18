@@ -9,13 +9,20 @@ import SwiftUI
 import SwiftUICharts
 
 struct HistoryView: View {
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Hasil.created_at, ascending: false)],
+            animation: .default)
+        private var hasil: FetchedResults<Hasil>
+    
+    let risiko: String
+    
     var body: some View {
         NavigationView {
             ZStack {
                 Color("Light-Blue")
                 
                 VStack(spacing: 0) {
-                    LineChart()
+                    LineChart(dataset: toDatapoints(hasil: hasil, risiko: risiko), risiko: risiko)
                     
                     VStack(alignment: .leading, spacing: 0) {
                         Text("Result History")
@@ -25,10 +32,17 @@ struct HistoryView: View {
                             .padding(.bottom, 10)
                         
                         VStack(spacing: 5) {
-                            RowHistory(risiko: "High risk", tglScreening: "04 May, 2022")
-                            RowHistory(risiko: "Medium risk", tglScreening: "03 May, 2022")
-                            RowHistory(risiko: "Low risk", tglScreening: "02 May, 2022")
-                            RowHistory(risiko: "High risk", tglScreening: "01 May, 2022")
+                            ForEach(hasil) { item in
+                                if risiko == "Diabetes" {
+                                    RowHistory(risiko: item.hasilDiabetes ?? "", tglScreening: item.tglScreening ?? "")
+                                }
+                                else if risiko == "Stroke" {
+                                    RowHistory(risiko: item.hasilStroke ?? "", tglScreening: item.tglScreening ?? "")
+                                }
+                                else if risiko == "Cholesterol" {
+                                    RowHistory(risiko: item.hasilKolesterol ?? "", tglScreening: item.tglScreening ?? "")
+                                }
+                            }
                         }
                         .padding(.bottom, 20)
                         
@@ -45,10 +59,29 @@ struct HistoryView: View {
             .frame(maxHeight: .infinity)
         }
     }
+    
+    func toDatapoints(hasil: FetchedResults<Hasil>, risiko: String) -> [Double] {
+        var datapoints: [Double] = [Double]()
+        
+        for item in hasil {
+            if risiko == "Diabetes" {
+                datapoints.append(Double(item.scoreDiabetes))
+            }
+            else if risiko == "Stroke" {
+                datapoints.append(Double(item.scoreStroke))
+            }
+            else if risiko == "Cholesterol" {
+                datapoints.append(Double(item.scoreKolesterol))
+            }
+            
+        }
+        
+        return datapoints.reversed()
+    }
 }
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView()
+        HistoryView(risiko: "Diabetes")
     }
 }
