@@ -16,7 +16,7 @@ struct LineChart: View {
         VStack{
             let chartSytle = ChartStyle(backgroundColor: .white, accentColor: Colors.DarkPurple, secondGradientColor: Colors.GradientPurple, textColor: Color("Navy"), legendTextColor: Color("Navy"), dropShadowColor: Color("Purple"))
             
-            LineView(data: dataset, title: "History", legend: risiko + " Score", style: chartSytle)
+            LineView(data: dataset, title: risiko, legend: "Score History", style: chartSytle)
                 .padding([.leading, .trailing, .bottom], 20)
         }
         .frame(maxWidth: .infinity, maxHeight: 358, alignment: .center)

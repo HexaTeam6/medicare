@@ -27,6 +27,8 @@ struct HistoryView: View {
                     LineChart(dataset: toDatapoints(hasil: hasil, risiko: risiko), risiko: risiko)
                         .frame(height: 358)
                         .padding(.top, 100)
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityLabel(risiko + "score history chart")
                     
                     VStack(alignment: .leading, spacing: 0) {
                         Text("Result History")
