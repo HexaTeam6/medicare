@@ -24,8 +24,10 @@ func addHasil(viewContext: NSManagedObjectContext, userAnswer: [Answer]){
     newHasil.hasilKolesterol = hasiKolesterol.risiko
     newHasil.scoreKolesterol = hasiKolesterol.score
     
-    newHasil.hasilStroke = hasilStroke.risiko
-    newHasil.scoreStroke = Int16(hasilStroke.score)
+    newHasil.hasilStroke = hasilStroke.0
+    newHasil.scoreLStroke = Int16(hasilStroke.1)
+    newHasil.scoreMStroke = Int16(hasilStroke.2)
+    newHasil.scoreHStroke = Int16(hasilStroke.3)
     
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "dd MMM, yyyy"

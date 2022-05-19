@@ -22,6 +22,9 @@ struct HistoryView: View {
                 Color("Light-Blue")
                 
                 VStack(spacing: 0) {
+                    
+                    Spacer()
+                    
                     LineChart(dataset: toDatapoints(hasil: hasil, risiko: risiko), risiko: risiko)
                     
                     VStack(alignment: .leading, spacing: 0) {
@@ -32,19 +35,23 @@ struct HistoryView: View {
                             .padding(.bottom, 10)
                         
                         VStack(spacing: 5) {
-                            ForEach(hasil) { item in
-                                if risiko == "Diabetes" {
-                                    RowHistory(risiko: item.hasilDiabetes ?? "", tglScreening: item.tglScreening ?? "")
-                                }
-                                else if risiko == "Stroke" {
-                                    RowHistory(risiko: item.hasilStroke ?? "", tglScreening: item.tglScreening ?? "")
-                                }
-                                else if risiko == "Cholesterol" {
-                                    RowHistory(risiko: item.hasilKolesterol ?? "", tglScreening: item.tglScreening ?? "")
+                            ScrollView {
+                                ForEach(hasil) { item in
+                                    if risiko == "Diabetes" {
+                                        RowHistory(risiko: item.hasilDiabetes ?? "", tglScreening: item.tglScreening ?? "")
+                                    }
+                                    else if risiko == "Stroke" {
+                                        RowHistory(risiko: item.hasilStroke ?? "", tglScreening: item.tglScreening ?? "")
+                                    }
+                                    else if risiko == "Cholesterol" {
+                                        RowHistory(risiko: item.hasilKolesterol ?? "", tglScreening: item.tglScreening ?? "")
+                                    }
                                 }
                             }
                         }
                         .padding(.bottom, 20)
+                        .frame(height: 300)
+                        
                         
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -52,6 +59,7 @@ struct HistoryView: View {
                     .cornerRadius(10)
                     .padding([.leading, .trailing], 25)
                     .padding(.top, 20)
+                    
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -68,7 +76,7 @@ struct HistoryView: View {
                 datapoints.append(Double(item.scoreDiabetes))
             }
             else if risiko == "Stroke" {
-                datapoints.append(Double(item.scoreStroke))
+                datapoints.append(Double(item.scoreHStroke))
             }
             else if risiko == "Cholesterol" {
                 datapoints.append(Double(item.scoreKolesterol))

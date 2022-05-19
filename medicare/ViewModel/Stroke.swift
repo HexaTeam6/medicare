@@ -9,7 +9,7 @@ import Foundation
 
 
 // MARK: Calculate Stroke
-func calcStroke (userAnswer: [Answer]) -> HasilRisiko {
+func calcStroke (userAnswer: [Answer]) -> (String, Int, Int, Int) {
     var high: Int = 0
     var medium: Int = 0
     var low: Int = 0
@@ -157,5 +157,5 @@ func calcStroke (userAnswer: [Answer]) -> HasilRisiko {
         }
     }
     
-    return HasilRisiko(risiko: hasil, score: Double(0))
+    return (hasil, low, medium, high)
 }
