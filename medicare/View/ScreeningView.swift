@@ -153,6 +153,9 @@ struct NavigationButton: View {
     
     @Binding var rootIsActive: Bool
     
+    @AppStorage("hasilScreening", store: UserDefaults(suiteName: "group.com.hexateam6.medicare"))
+    var dataStorage: Data = Data()
+    
     var body: some View {
         VStack(spacing: 0){
             Button(action: {
@@ -196,7 +199,20 @@ struct NavigationButton: View {
                     currentQuestion += 1
                 }
                 else {
+                    // tambah ke core data
                     addHasil(viewContext: viewContext, userAnswer: userAnswer)
+                    
+                    // simpan di AppStorage
+                    let hasilDiabetes = calcDiabetes(userAnswer: userAnswer)
+                    let hasiKolesterol = calcKolesterol(userAnswer: userAnswer)
+                    let hasilStroke = calcStroke(userAnswer: userAnswer)
+                    
+                    let hasilScreening = HasilScreening(hasiDiabetes: hasilDiabetes.risiko, hasilKolesterol: hasiKolesterol.risiko, hasilStroke: hasilStroke.0, tglScreening: dateFormatter.string(from: Date()))
+                    
+                    guard let data = try? JSONEncoder().encode(hasilScreening) else { return }
+                    dataStorage = data
+                    
+                    // pop ke halaman utama
                     rootIsActive = false
                 }
                 

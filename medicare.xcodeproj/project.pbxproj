@@ -23,6 +23,9 @@
 		38423C912833D69D006D052E /* HistoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38423C902833D69D006D052E /* HistoryCard.swift */; };
 		38423C932833DF49006D052E /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38423C922833DF49006D052E /* HistoryView.swift */; };
 		3860E29D2835671F0060E232 /* MultiLineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3860E29C2835671F0060E232 /* MultiLineChart.swift */; };
+		3870BFDD28367AE3002C3F9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38777BB828241CA4002D091F /* Assets.xcassets */; };
+		3872A6102836697B00F3D790 /* HasilScreening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3872A60F2836697B00F3D790 /* HasilScreening.swift */; };
+		3872A6132836748900F3D790 /* HasilScreening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3872A60F2836697B00F3D790 /* HasilScreening.swift */; };
 		38777BB528241CA3002D091F /* medicareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BB428241CA3002D091F /* medicareApp.swift */; };
 		38777BB728241CA3002D091F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BB628241CA3002D091F /* ContentView.swift */; };
 		38777BB928241CA4002D091F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38777BB828241CA4002D091F /* Assets.xcassets */; };
@@ -32,6 +35,13 @@
 		38777BD228241CA4002D091F /* medicareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BD128241CA4002D091F /* medicareUITestsLaunchTests.swift */; };
 		38777BDF28245314002D091F /* ScreeningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BDE28245314002D091F /* ScreeningView.swift */; };
 		38777BE12824B3B6002D091F /* Screening.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38777BE02824B3B6002D091F /* Screening.swift */; };
+		387AEB1F283652CA009B1BBA /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387AEB1E283652CA009B1BBA /* WidgetKit.framework */; };
+		387AEB21283652CA009B1BBA /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 387AEB20283652CA009B1BBA /* SwiftUI.framework */; };
+		387AEB24283652CA009B1BBA /* medicareWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387AEB23283652CA009B1BBA /* medicareWidget.swift */; };
+		387AEB27283652CB009B1BBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 387AEB26283652CB009B1BBA /* Assets.xcassets */; };
+		387AEB29283652CB009B1BBA /* medicareWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 387AEB25283652CA009B1BBA /* medicareWidget.intentdefinition */; };
+		387AEB2A283652CB009B1BBA /* medicareWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 387AEB25283652CA009B1BBA /* medicareWidget.intentdefinition */; };
+		387AEB2D283652CB009B1BBA /* medicareWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 387AEB1C283652CA009B1BBA /* medicareWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		387B5D62282EAB3900812826 /* Medicare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 387B5D60282EAB3900812826 /* Medicare.xcdatamodeld */; };
 		387B5D64282EADD800812826 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387B5D63282EADD800812826 /* DataController.swift */; };
 /* End PBXBuildFile section */
@@ -51,7 +61,28 @@
 			remoteGlobalIDString = 38777BB028241CA3002D091F;
 			remoteInfo = medicare;
 		};
+		387AEB2B283652CB009B1BBA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 38777BA928241CA3002D091F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 387AEB1B283652CA009B1BBA;
+			remoteInfo = medicareWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		387AEB2E283652CB009B1BBA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				387AEB2D283652CB009B1BBA /* medicareWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		380F993D28350565001BE9A4 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
@@ -69,6 +100,7 @@
 		38423C902833D69D006D052E /* HistoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCard.swift; sourceTree = "<group>"; };
 		38423C922833DF49006D052E /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		3860E29C2835671F0060E232 /* MultiLineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineChart.swift; sourceTree = "<group>"; };
+		3872A60F2836697B00F3D790 /* HasilScreening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasilScreening.swift; sourceTree = "<group>"; };
 		38777BB128241CA3002D091F /* medicare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = medicare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38777BB428241CA3002D091F /* medicareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicareApp.swift; sourceTree = "<group>"; };
 		38777BB628241CA3002D091F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,6 +113,13 @@
 		38777BD128241CA4002D091F /* medicareUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicareUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		38777BDE28245314002D091F /* ScreeningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreeningView.swift; sourceTree = "<group>"; };
 		38777BE02824B3B6002D091F /* Screening.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screening.swift; sourceTree = "<group>"; };
+		387AEB1C283652CA009B1BBA /* medicareWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = medicareWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		387AEB1E283652CA009B1BBA /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		387AEB20283652CA009B1BBA /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		387AEB23283652CA009B1BBA /* medicareWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = medicareWidget.swift; sourceTree = "<group>"; };
+		387AEB25283652CA009B1BBA /* medicareWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = medicareWidget.intentdefinition; sourceTree = "<group>"; };
+		387AEB26283652CB009B1BBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		387AEB28283652CB009B1BBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		387B5D61282EAB3900812826 /* Medicare.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Medicare.xcdatamodel; sourceTree = "<group>"; };
 		387B5D63282EADD800812826 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +147,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		387AEB19283652CA009B1BBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				387AEB21283652CA009B1BBA /* SwiftUI.framework in Frameworks */,
+				387AEB1F283652CA009B1BBA /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -117,6 +165,7 @@
 				38777BE02824B3B6002D091F /* Screening.swift */,
 				383F2E5928250B75008C92BC /* Answer.swift */,
 				38423C76282EB60D006D052E /* HasilRisiko.swift */,
+				3872A60F2836697B00F3D790 /* HasilScreening.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,6 +212,8 @@
 				38777BB328241CA3002D091F /* medicare */,
 				38777BC428241CA4002D091F /* medicareTests */,
 				38777BCE28241CA4002D091F /* medicareUITests */,
+				387AEB22283652CA009B1BBA /* medicareWidget */,
+				387AEB1D283652CA009B1BBA /* Frameworks */,
 				38777BB228241CA3002D091F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -173,6 +224,7 @@
 				38777BB128241CA3002D091F /* medicare.app */,
 				38777BC128241CA4002D091F /* medicareTests.xctest */,
 				38777BCB28241CA4002D091F /* medicareUITests.xctest */,
+				387AEB1C283652CA009B1BBA /* medicareWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -218,6 +270,26 @@
 			path = medicareUITests;
 			sourceTree = "<group>";
 		};
+		387AEB1D283652CA009B1BBA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				387AEB1E283652CA009B1BBA /* WidgetKit.framework */,
+				387AEB20283652CA009B1BBA /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		387AEB22283652CA009B1BBA /* medicareWidget */ = {
+			isa = PBXGroup;
+			children = (
+				387AEB23283652CA009B1BBA /* medicareWidget.swift */,
+				387AEB25283652CA009B1BBA /* medicareWidget.intentdefinition */,
+				387AEB26283652CB009B1BBA /* Assets.xcassets */,
+				387AEB28283652CB009B1BBA /* Info.plist */,
+			);
+			path = medicareWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -228,10 +300,12 @@
 				38777BAD28241CA3002D091F /* Sources */,
 				38777BAE28241CA3002D091F /* Frameworks */,
 				38777BAF28241CA3002D091F /* Resources */,
+				387AEB2E283652CB009B1BBA /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				387AEB2C283652CB009B1BBA /* PBXTargetDependency */,
 			);
 			name = medicare;
 			packageProductDependencies = (
@@ -277,6 +351,23 @@
 			productReference = 38777BCB28241CA4002D091F /* medicareUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		387AEB1B283652CA009B1BBA /* medicareWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 387AEB31283652CB009B1BBA /* Build configuration list for PBXNativeTarget "medicareWidgetExtension" */;
+			buildPhases = (
+				387AEB18283652CA009B1BBA /* Sources */,
+				387AEB19283652CA009B1BBA /* Frameworks */,
+				387AEB1A283652CA009B1BBA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = medicareWidgetExtension;
+			productName = medicareWidgetExtension;
+			productReference = 387AEB1C283652CA009B1BBA /* medicareWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -297,6 +388,9 @@
 					38777BCA28241CA4002D091F = {
 						CreatedOnToolsVersion = 13.3;
 						TestTargetID = 38777BB028241CA3002D091F;
+					};
+					387AEB1B283652CA009B1BBA = {
+						CreatedOnToolsVersion = 13.3.1;
 					};
 				};
 			};
@@ -319,6 +413,7 @@
 				38777BB028241CA3002D091F /* medicare */,
 				38777BC028241CA4002D091F /* medicareTests */,
 				38777BCA28241CA4002D091F /* medicareUITests */,
+				387AEB1B283652CA009B1BBA /* medicareWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -347,6 +442,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		387AEB1A283652CA009B1BBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3870BFDD28367AE3002C3F9D /* Assets.xcassets in Resources */,
+				387AEB27283652CB009B1BBA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -354,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3872A6102836697B00F3D790 /* HasilScreening.swift in Sources */,
 				38423C7B283377A2006D052E /* Header.swift in Sources */,
 				38423C81283378C5006D052E /* ProgressCounter.swift in Sources */,
 				38777BE12824B3B6002D091F /* Screening.swift in Sources */,
@@ -372,6 +477,7 @@
 				38423C77282EB60D006D052E /* HasilRisiko.swift in Sources */,
 				38423C912833D69D006D052E /* HistoryCard.swift in Sources */,
 				3860E29D2835671F0060E232 /* MultiLineChart.swift in Sources */,
+				387AEB2A283652CB009B1BBA /* medicareWidget.intentdefinition in Sources */,
 				38777BDF28245314002D091F /* ScreeningView.swift in Sources */,
 				38423C7D283377DE006D052E /* StartScreening.swift in Sources */,
 				38423C8928337B30006D052E /* Kolesterol.swift in Sources */,
@@ -395,6 +501,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		387AEB18283652CA009B1BBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				387AEB29283652CB009B1BBA /* medicareWidget.intentdefinition in Sources */,
+				387AEB24283652CA009B1BBA /* medicareWidget.swift in Sources */,
+				3872A6132836748900F3D790 /* HasilScreening.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -407,6 +523,11 @@
 			isa = PBXTargetDependency;
 			target = 38777BB028241CA3002D091F /* medicare */;
 			targetProxy = 38777BCC28241CA4002D091F /* PBXContainerItemProxy */;
+		};
+		387AEB2C283652CB009B1BBA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 387AEB1B283652CA009B1BBA /* medicareWidgetExtension */;
+			targetProxy = 387AEB2B283652CB009B1BBA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -528,11 +649,15 @@
 		38777BD628241CA4002D091F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = medicare/medicare.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"medicare/Preview Content\"";
+				DEVELOPMENT_TEAM = TA2QY986U9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -547,6 +672,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hexateam6.medicare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -556,11 +682,15 @@
 		38777BD728241CA4002D091F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = medicare/medicare.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"medicare/Preview Content\"";
+				DEVELOPMENT_TEAM = TA2QY986U9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -575,6 +705,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hexateam6.medicare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -653,6 +784,62 @@
 			};
 			name = Release;
 		};
+		387AEB2F283652CB009B1BBA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = medicareWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TA2QY986U9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = medicareWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = medicareWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hexateam6.medicare.medicareWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		387AEB30283652CB009B1BBA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = medicareWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TA2QY986U9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = medicareWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = medicareWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hexateam6.medicare.medicareWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -688,6 +875,15 @@
 			buildConfigurations = (
 				38777BDC28241CA4002D091F /* Debug */,
 				38777BDD28241CA4002D091F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		387AEB31283652CB009B1BBA /* Build configuration list for PBXNativeTarget "medicareWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				387AEB2F283652CB009B1BBA /* Debug */,
+				387AEB30283652CB009B1BBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
