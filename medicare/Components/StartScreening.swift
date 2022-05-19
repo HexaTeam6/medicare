@@ -45,7 +45,7 @@ struct StartScreening: View {
         }
         .background(Color("Purple").opacity(0.20))
         .cornerRadius(10)
-        .padding(.horizontal, 25)
+//        .padding(.horizontal, 25)
         .padding(.top, 20)
     }
 }

@@ -22,10 +22,11 @@ struct HistoryView: View {
                 Color("Light-Blue")
                 
                 VStack(spacing: 0) {
-                    
                     Spacer()
                     
                     LineChart(dataset: toDatapoints(hasil: hasil, risiko: risiko), risiko: risiko)
+                        .frame(height: 358)
+                        .padding(.top, 100)
                     
                     VStack(alignment: .leading, spacing: 0) {
                         Text("Result History")
@@ -50,7 +51,7 @@ struct HistoryView: View {
                             }
                         }
                         .padding(.bottom, 20)
-                        .frame(height: 300)
+                        .frame(maxHeight: .infinity)
                         
                         
                     }

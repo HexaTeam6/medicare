@@ -18,7 +18,7 @@ struct Header: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .foregroundColor(Color("Navy"))
-        .padding(.horizontal, 25)
+//        .padding(.horizontal, 25)
         .padding(.top, 108)
     }
     
